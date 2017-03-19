@@ -3,7 +3,9 @@
 // =============================================================================
 
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o'); // connect to our database
+//mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o'); // connect to our database
+//mongoose.connect(' mongodb://127.0.0.1:27017/test');
+mongoose.connect('mongodb://127.0.0.1/my_database');
 var Bear     = require('./app/models/bear');
 
 // call the packages we need
@@ -35,7 +37,6 @@ router.route('/bears')
         console.log(bear.name);
         // save the bear and check for errors
         bear.save(function(err) {
-            console.log(err);
             if (err)
                 res.send(err);
             res.json({ message: 'Bear created!' });
